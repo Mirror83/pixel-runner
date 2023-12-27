@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cenc3f7bparge"]
+[gd_scene load_steps=8 format=3 uid="uid://cenc3f7bparge"]
 
 [ext_resource type="Script" path="res://Scenes/Main.cs" id="1_3t0fv"]
 [ext_resource type="Texture2D" uid="uid://csuukadqr1kou" path="res://assets/graphics/sky.png" id="1_icwc3"]
 [ext_resource type="Texture2D" uid="uid://bc0ykue2m2vb4" path="res://assets/graphics/ground.png" id="1_uuxmi"]
 [ext_resource type="PackedScene" uid="uid://cjt03nmy765r3" path="res://Scenes/Snail.tscn" id="2_pcq8o"]
+[ext_resource type="PackedScene" uid="uid://dt4t85ky24as3" path="res://Scenes/Fly.tscn" id="3_45hpl"]
 [ext_resource type="PackedScene" uid="uid://cwusbw0dvgn10" path="res://Scenes/Player.tscn" id="3_fxyay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpehk"]
@@ -12,6 +13,7 @@ size = Vector2(799, 168)
 [node name="Main" type="Node"]
 script = ExtResource("1_3t0fv")
 SnailScene = ExtResource("2_pcq8o")
+FlyScene = ExtResource("3_45hpl")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0
