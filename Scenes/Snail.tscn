@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjt03nmy765r3"]
+
+[ext_resource type="Script" path="res://Scenes/Snail.cs" id="1_5ds4n"]
+[ext_resource type="Texture2D" uid="uid://fan35ilwabf8" path="res://assets/graphics/snail/snail_1.png" id="1_o1o86"]
+[ext_resource type="Texture2D" uid="uid://bf3blu8nk7u4e" path="res://assets/graphics/snail/snail_2.png" id="2_2m76w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_usnai"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o1o86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2m76w")
+}],
+"loop": true,
+"name": &"glide",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17hvt"]
+size = Vector2(65, 31)
+
+[node name="Snail" type="RigidBody2D" groups=["snails"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_5ds4n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_usnai")
+animation = &"glide"
+frame = 1
+frame_progress = 0.0854599
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2.5)
+shape = SubResource("RectangleShape2D_17hvt")
