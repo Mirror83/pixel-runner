@@ -38,15 +38,19 @@ public partial class Main : Node
     {
         var player = GetNode<Player>("Player");
         
-        // 1. Enable player physics
+        // Enable player physics
         player.ProcessMode = ProcessModeEnum.Inherit;
-        // 2. Show player
-        if (!player.Visible) player.Show();
-        // 3. (Re)start enemy spawn timer
-        GetNode<Timer>("EnemySpawnTimer").Start();
         
-        // 4. Revert process mode to Inherit
+        if (!player.Visible) player.Show();
+        
+        // (Re)start enemy spawn timer
+        GetNode<Timer>("EnemySpawnTimer").Start();
+       
+        // Enable physics for the snails
         GetTree().SetGroup("snails", Node.PropertyName.ProcessMode, (int)ProcessModeEnum.Inherit);
+        
+        // Enable ground scrolling
+        GetNode<Ground>("Ground").SetProcess(true);
         
         GetNode<Timer>("ScoreTimer").Stop();
 
@@ -58,6 +62,8 @@ public partial class Main : Node
         
         var enemySpawnTimer = GetNode<Timer>("EnemySpawnTimer");
         enemySpawnTimer.Stop();
+        
+        GetNode<Ground>("Ground").SetProcess(false);
         
         GetNode<Timer>("ScoreTimer").Stop();
         

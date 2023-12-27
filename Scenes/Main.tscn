@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cenc3f7bparge"]
+[gd_scene load_steps=10 format=3 uid="uid://cenc3f7bparge"]
 
 [ext_resource type="Script" path="res://Scenes/Main.cs" id="1_3t0fv"]
 [ext_resource type="Texture2D" uid="uid://csuukadqr1kou" path="res://assets/graphics/sky.png" id="1_icwc3"]
@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://cjt03nmy765r3" path="res://Scenes/Snail.tscn" id="2_pcq8o"]
 [ext_resource type="PackedScene" uid="uid://dt4t85ky24as3" path="res://Scenes/Fly.tscn" id="3_45hpl"]
 [ext_resource type="PackedScene" uid="uid://cwusbw0dvgn10" path="res://Scenes/Player.tscn" id="3_fxyay"]
+[ext_resource type="Script" path="res://Scenes/Ground.cs" id="5_xcovi"]
 [ext_resource type="PackedScene" uid="uid://bbbyaplwa57yv" path="res://Scenes/ScoreDisplay.tscn" id="7_qbpai"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpehk"]
-size = Vector2(799, 168)
+size = Vector2(1600, 168)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_3t0fv")
@@ -22,11 +23,12 @@ offset_bottom = 40.0
 texture = ExtResource("1_icwc3")
 
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(0, 300)
+position = Vector2(0, 296)
+script = ExtResource("5_xcovi")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(399.5, 84)
+position = Vector2(800, 84)
 shape = SubResource("RectangleShape2D_mpehk")
 
 [node name="TextureRect" type="TextureRect" parent="Ground"]
@@ -34,12 +36,18 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_uuxmi")
 
+[node name="TextureRectCopy" type="TextureRect" parent="Ground"]
+offset_left = 800.0
+offset_right = 1600.0
+offset_bottom = 168.0
+texture = ExtResource("1_uuxmi")
+
 [node name="Player" parent="." instance=ExtResource("3_fxyay")]
 position = Vector2(80, 258)
 metadata/_edit_group_ = true
 
 [node name="SnailSpawnPosition" type="Marker2D" parent="."]
-position = Vector2(1200, 284)
+position = Vector2(1200, 280)
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
