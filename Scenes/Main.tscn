@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cenc3f7bparge"]
+[gd_scene load_steps=11 format=3 uid="uid://cenc3f7bparge"]
 
 [ext_resource type="Script" path="res://Scenes/Main.cs" id="1_3t0fv"]
 [ext_resource type="Texture2D" uid="uid://csuukadqr1kou" path="res://assets/graphics/sky.png" id="1_icwc3"]
@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cjt03nmy765r3" path="res://Scenes/Snail.tscn" id="2_pcq8o"]
 [ext_resource type="PackedScene" uid="uid://dt4t85ky24as3" path="res://Scenes/Fly.tscn" id="3_45hpl"]
 [ext_resource type="PackedScene" uid="uid://cwusbw0dvgn10" path="res://Scenes/Player.tscn" id="3_fxyay"]
-[ext_resource type="Script" path="res://Scenes/Ground.cs" id="5_xcovi"]
+[ext_resource type="Script" path="res://Scenes/GroundTexture.cs" id="6_88jpt"]
 [ext_resource type="PackedScene" uid="uid://bbbyaplwa57yv" path="res://Scenes/ScoreDisplay.tscn" id="7_qbpai"]
+[ext_resource type="Script" path="res://Scenes/Background.cs" id="8_rqsjq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpehk"]
 size = Vector2(1600, 168)
@@ -17,26 +18,47 @@ script = ExtResource("1_3t0fv")
 SnailScene = ExtResource("2_pcq8o")
 FlyScene = ExtResource("3_45hpl")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("8_rqsjq")
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 300.0
+texture = ExtResource("1_icwc3")
+
+[node name="TextureRectCopy" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 800.0
+offset_right = 1600.0
+offset_bottom = 300.0
 texture = ExtResource("1_icwc3")
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 296)
-script = ExtResource("5_xcovi")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 position = Vector2(800, 84)
 shape = SubResource("RectangleShape2D_mpehk")
 
-[node name="TextureRect" type="TextureRect" parent="Ground"]
+[node name="GroundTexture" type="Control" parent="Ground"]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("6_88jpt")
+
+[node name="TextureRect" type="TextureRect" parent="Ground/GroundTexture"]
+offset_right = 800.0
+offset_bottom = 168.0
 texture = ExtResource("1_uuxmi")
 
-[node name="TextureRectCopy" type="TextureRect" parent="Ground"]
+[node name="TextureRectCopy" type="TextureRect" parent="Ground/GroundTexture"]
 offset_left = 800.0
 offset_right = 1600.0
 offset_bottom = 168.0

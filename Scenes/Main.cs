@@ -12,6 +12,7 @@ public partial class Main : Node
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        UpdateScoreLabel(_score);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,7 +51,7 @@ public partial class Main : Node
         GetTree().SetGroup("snails", Node.PropertyName.ProcessMode, (int)ProcessModeEnum.Inherit);
         
         // Enable ground and background scrolling
-        GetNode<Ground>("Ground").SetProcess(true);
+        GetNode<GroundTexture>("Ground/GroundTexture").SetProcess(true);
         GetNode<Background>("Background").SetProcess(false);
 
         
@@ -65,7 +66,7 @@ public partial class Main : Node
         var enemySpawnTimer = GetNode<Timer>("EnemySpawnTimer");
         enemySpawnTimer.Stop();
         
-        GetNode<Ground>("Ground").SetProcess(false);
+        GetNode<GroundTexture>("Ground/GroundTexture").SetProcess(false);
         
         GetNode<Background>("Background").SetProcess(false);
         
@@ -86,12 +87,12 @@ public partial class Main : Node
     private void OnScoreTimerTimeout()
     {
         _score += 1;
-        UpdateScoreTimer(_score);
+        UpdateScoreLabel(_score);
     }
 
-    private void UpdateScoreTimer(int score)
+    private void UpdateScoreLabel(int score)
     {
         var label = GetNode<Label>("ScoreDisplay/Label");
-        label.Text = score.ToString();
+        label.Text = $"Score: {score.ToString()}";
     }
 }
