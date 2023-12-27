@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbbyaplwa57yv"]
+
+[ext_resource type="FontFile" uid="uid://48f5naa0sa4x" path="res://assets/fonts/Pixeltype.ttf" id="1_lwnw4"]
+
+[node name="ScoreDisplay" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 63.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.678431)
+theme_override_fonts/font = ExtResource("1_lwnw4")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

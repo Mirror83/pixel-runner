@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cenc3f7bparge"]
+[gd_scene load_steps=9 format=3 uid="uid://cenc3f7bparge"]
 
 [ext_resource type="Script" path="res://Scenes/Main.cs" id="1_3t0fv"]
 [ext_resource type="Texture2D" uid="uid://csuukadqr1kou" path="res://assets/graphics/sky.png" id="1_icwc3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cjt03nmy765r3" path="res://Scenes/Snail.tscn" id="2_pcq8o"]
 [ext_resource type="PackedScene" uid="uid://dt4t85ky24as3" path="res://Scenes/Fly.tscn" id="3_45hpl"]
 [ext_resource type="PackedScene" uid="uid://cwusbw0dvgn10" path="res://Scenes/Player.tscn" id="3_fxyay"]
+[ext_resource type="PackedScene" uid="uid://bbbyaplwa57yv" path="res://Scenes/ScoreDisplay.tscn" id="7_qbpai"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpehk"]
 size = Vector2(799, 168)
@@ -46,6 +47,12 @@ autostart = true
 
 [node name="FlySpawnPosition" type="Marker2D" parent="."]
 position = Vector2(1200, 129)
+
+[node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="ScoreDisplay" parent="." instance=ExtResource("7_qbpai")]
 
 [connection signal="Hit" from="Player" to="." method="OnPlayerHit"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="OnEnemySpawnTimerTimeout"]
