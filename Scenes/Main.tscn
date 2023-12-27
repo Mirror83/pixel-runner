@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cenc3f7bparge"]
+[gd_scene load_steps=12 format=3 uid="uid://cenc3f7bparge"]
 
 [ext_resource type="Script" path="res://Scenes/Main.cs" id="1_3t0fv"]
 [ext_resource type="Texture2D" uid="uid://csuukadqr1kou" path="res://assets/graphics/sky.png" id="1_icwc3"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scenes/GroundTexture.cs" id="6_88jpt"]
 [ext_resource type="PackedScene" uid="uid://bbbyaplwa57yv" path="res://Scenes/ScoreDisplay.tscn" id="7_qbpai"]
 [ext_resource type="Script" path="res://Scenes/Background.cs" id="8_rqsjq"]
+[ext_resource type="PackedScene" uid="uid://b4yu5njyrv48d" path="res://Scenes/StartScreen.tscn" id="10_3f3hk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpehk"]
 size = Vector2(1600, 168)
@@ -75,7 +76,6 @@ position = Vector2(1200, 280)
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
-autostart = true
 
 [node name="FlySpawnPosition" type="Marker2D" parent="."]
 position = Vector2(1200, 139)
@@ -86,6 +86,9 @@ autostart = true
 
 [node name="ScoreDisplay" parent="." instance=ExtResource("7_qbpai")]
 
+[node name="StartScreen" parent="." instance=ExtResource("10_3f3hk")]
+
 [connection signal="Hit" from="Player" to="." method="OnPlayerHit"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="OnEnemySpawnTimerTimeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="OnScoreTimerTimeout"]
+[connection signal="StartGame" from="StartScreen" to="." method="OnNewGame"]

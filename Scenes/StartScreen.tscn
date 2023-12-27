@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4yu5njyrv48d"]
+
+[ext_resource type="Texture2D" uid="uid://bk068dgjf0tpp" path="res://assets/graphics/player/player_stand.png" id="1_2f4fi"]
+[ext_resource type="Script" path="res://Scenes/StartScreen.cs" id="1_x24k3"]
+[ext_resource type="FontFile" uid="uid://48f5naa0sa4x" path="res://assets/fonts/Pixeltype.ttf" id="2_ghwu0"]
+
+[node name="StartScreen" type="CanvasLayer"]
+script = ExtResource("1_x24k3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.752941, 0.909804, 0.92549, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(400, 200)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_2f4fi")
+
+[node name="GameTitle" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -184.5
+offset_top = 36.0
+offset_right = 196.5
+offset_bottom = 102.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.25098, 0.25098, 0.25098, 1)
+theme_override_fonts/font = ExtResource("2_ghwu0")
+theme_override_font_sizes/font_size = 88
+text = "Pixel Runner"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartPrompt" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -201.0
+offset_top = -79.0
+offset_right = 207.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.423529, 0.423529, 0.423529, 1)
+theme_override_fonts/font = ExtResource("2_ghwu0")
+theme_override_font_sizes/font_size = 64
+text = "Press Enter to start
+"

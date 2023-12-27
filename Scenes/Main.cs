@@ -7,6 +7,8 @@ public partial class Main : Node
     [Export] public PackedScene SnailScene { get; set; }
     [Export] public PackedScene FlyScene { get; set; }
 
+    private Vector2 _playerStartPosition = new(80, 258);
+
     private int _score;
 
     private const int FlyThresholdScore = 10;
@@ -15,7 +17,6 @@ public partial class Main : Node
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        UpdateScoreLabel(_score);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,8 +48,14 @@ public partial class Main : Node
     private void OnNewGame()
     {
         var player = GetNode<Player>("Player");
+        
+        // Reset Player start position
+        player.Position = _playerStartPosition;
+        player.Velocity = Vector2.Zero;
 
-        // Enable player physics
+        var startScreen = GetNode<StartScreen>("StartScreen");
+
+        // Enable Player physics
         player.ProcessMode = ProcessModeEnum.Inherit;
 
         if (!player.Visible) player.Show();
@@ -62,9 +69,12 @@ public partial class Main : Node
         // Enable ground and background scrolling
         GetNode<GroundTexture>("Ground/GroundTexture").SetProcess(true);
         GetNode<Background>("Background").SetProcess(false);
-
-
-        GetNode<Timer>("ScoreTimer").Stop();
+        
+        _score = 0;
+        UpdateScoreLabel(_score);
+        GetNode<Timer>("ScoreTimer").Start();
+        
+        startScreen.Disable();
     }
 
     private async void OnPlayerHit()
@@ -73,11 +83,13 @@ public partial class Main : Node
 
         var enemySpawnTimer = GetNode<Timer>("EnemySpawnTimer");
         enemySpawnTimer.Stop();
+        
+        var startScreen = GetNode<StartScreen>("StartScreen");
 
         GetNode<GroundTexture>("Ground/GroundTexture").SetProcess(false);
 
         GetNode<Background>("Background").SetProcess(false);
-
+        
         GetNode<Timer>("ScoreTimer").Stop();
 
         GetTree().SetGroup("enemies", Node.PropertyName.ProcessMode, (int)ProcessModeEnum.Disabled);
@@ -90,6 +102,8 @@ public partial class Main : Node
         GetTree().CallGroup("enemies", Node.MethodName.QueueFree);
 
         player.Hide();
+        
+        startScreen.Enable();
     }
 
     private void OnScoreTimerTimeout()
