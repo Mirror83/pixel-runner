@@ -18,19 +18,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f858k"]
-size = Vector2(71, 28)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgv0q"]
+size = Vector2(65, 26)
 
 [node name="Fly" type="RigidBody2D" groups=["enemies"]]
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_f6j5d")
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dqy78")
 animation = &"fly"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -2)
-shape = SubResource("RectangleShape2D_f858k")
+position = Vector2(2.5, -2)
+shape = SubResource("RectangleShape2D_hgv0q")
