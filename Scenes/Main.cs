@@ -19,7 +19,7 @@ public partial class Main : Node
     {
     }
 
-    public void OnEnemySpawnTimerTimeout()
+    private void OnEnemySpawnTimerTimeout()
     {
         var snail = SnailScene.Instantiate<Snail>();
 
@@ -48,6 +48,9 @@ public partial class Main : Node
         // 4. Revert process mode to Inherit
         GetTree().SetGroup("snails", Node.PropertyName.ProcessMode, (int)ProcessModeEnum.Inherit);
         
+        GetNode<Timer>("ScoreTimer").Stop();
+
+        
     }
     private async void OnPlayerHit()
     {
@@ -55,6 +58,8 @@ public partial class Main : Node
         
         var enemySpawnTimer = GetNode<Timer>("EnemySpawnTimer");
         enemySpawnTimer.Stop();
+        
+        GetNode<Timer>("ScoreTimer").Stop();
         
         GetTree().SetGroup("snails", Node.PropertyName.ProcessMode, (int)ProcessModeEnum.Disabled);
 
@@ -66,5 +71,17 @@ public partial class Main : Node
         GetTree().CallGroup("snails", Node.MethodName.QueueFree);
         
         player.Hide();
+    }
+
+    private void OnScoreTimerTimeout()
+    {
+        _score += 1;
+        UpdateScoreTimer(_score);
+    }
+
+    private void UpdateScoreTimer(int score)
+    {
+        var label = GetNode<Label>("ScoreDisplay/Label");
+        label.Text = score.ToString();
     }
 }
