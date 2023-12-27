@@ -68,7 +68,7 @@ public partial class Main : Node
 
         // Enable ground and background scrolling
         GetNode<GroundTexture>("Ground/GroundTexture").SetProcess(true);
-        GetNode<Background>("Background").SetProcess(false);
+        GetNode<Background>("Background").SetProcess(true);
         
         _score = 0;
         UpdateScoreLabel(_score);
