@@ -49,8 +49,10 @@ public partial class Main : Node
         // Enable physics for the snails
         GetTree().SetGroup("snails", Node.PropertyName.ProcessMode, (int)ProcessModeEnum.Inherit);
         
-        // Enable ground scrolling
+        // Enable ground and background scrolling
         GetNode<Ground>("Ground").SetProcess(true);
+        GetNode<Background>("Background").SetProcess(false);
+
         
         GetNode<Timer>("ScoreTimer").Stop();
 
@@ -64,6 +66,8 @@ public partial class Main : Node
         enemySpawnTimer.Stop();
         
         GetNode<Ground>("Ground").SetProcess(false);
+        
+        GetNode<Background>("Background").SetProcess(false);
         
         GetNode<Timer>("ScoreTimer").Stop();
         
