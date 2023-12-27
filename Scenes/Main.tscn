@@ -54,11 +54,13 @@ offset_bottom = 40.0
 script = ExtResource("6_88jpt")
 
 [node name="TextureRect" type="TextureRect" parent="Ground/GroundTexture"]
+layout_mode = 0
 offset_right = 800.0
 offset_bottom = 168.0
 texture = ExtResource("1_uuxmi")
 
 [node name="TextureRectCopy" type="TextureRect" parent="Ground/GroundTexture"]
+layout_mode = 0
 offset_left = 800.0
 offset_right = 1600.0
 offset_bottom = 168.0
@@ -76,7 +78,7 @@ wait_time = 2.0
 autostart = true
 
 [node name="FlySpawnPosition" type="Marker2D" parent="."]
-position = Vector2(1200, 129)
+position = Vector2(1200, 139)
 
 [node name="ScoreTimer" type="Timer" parent="."]
 wait_time = 2.0
