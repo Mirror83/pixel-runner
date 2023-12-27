@@ -21,7 +21,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17hvt"]
 size = Vector2(65, 31)
 
-[node name="Snail" type="RigidBody2D" groups=["snails"]]
+[node name="Snail" type="RigidBody2D" groups=["enemies"]]
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_5ds4n")

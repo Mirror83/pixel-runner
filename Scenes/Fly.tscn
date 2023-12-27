@@ -21,7 +21,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f858k"]
 size = Vector2(71, 28)
 
-[node name="Fly" type="RigidBody2D"]
+[node name="Fly" type="RigidBody2D" groups=["enemies"]]
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_f6j5d")
