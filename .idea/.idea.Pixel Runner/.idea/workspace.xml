@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edf3ee37-61b2-473a-a99c-2cfd36a45c58" name="Changes" comment="Renamed _backgroundVelocity to _scrollVelocity">
-      <change afterPath="$PROJECT_DIR$/Scenes/GroundTexture.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scenes/ScrollingTexture.cs" afterDir="false" />
+    <list default="true" id="edf3ee37-61b2-473a-a99c-2cfd36a45c58" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pixel Runner/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pixel Runner/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Background.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Background.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Main.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Main.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Main.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Main.tscn" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +18,12 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17ecfff6f7c64ec7aa08ab75932e7df63d0e00/3f/fc6b1586/Variant.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/user/Development/godot/Pixel Runner/Scenes/Background.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/user/Development/godot/Pixel Runner/Scenes/Main.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/user/Development/godot/Pixel Runner/Scenes/Main.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/user/Development/godot/Pixel Runner/Scenes/Player.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -107,7 +108,10 @@
       <workItem from="1703644996872" duration="2691000" />
       <workItem from="1703648636291" duration="1048000" />
       <workItem from="1703651625217" duration="4459000" />
-      <workItem from="1703660490395" duration="2018000" />
+      <workItem from="1703660490395" duration="3746000" />
+      <workItem from="1703686328650" duration="725000" />
+      <workItem from="1703697561845" duration="3789000" />
+      <workItem from="1703767047946" duration="1354000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -197,7 +201,71 @@
       <option name="project" value="LOCAL" />
       <updated>1703660631609</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Modified implementation of scrolling to use an abstract ScrollingTexture class">
+      <option name="closed" value="true" />
+      <created>1703662735399</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1703662735399</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Updated workspace.xml">
+      <option name="closed" value="true" />
+      <created>1703662753050</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1703662753050</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added Fly and Snail to one group: the enemies group">
+      <option name="closed" value="true" />
+      <created>1703664554482</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1703664554483</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Repositioned the FlySpawnPosition marker">
+      <option name="closed" value="true" />
+      <created>1703664620345</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1703664620345</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added ability to spawn flies">
+      <option name="closed" value="true" />
+      <created>1703664683304</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1703664683304</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Changed Input action name from ui_accept to jump">
+      <option name="closed" value="true" />
+      <created>1703701009082</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1703701009082</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added start screen">
+      <option name="closed" value="true" />
+      <created>1703701049732</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1703701049732</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Corrected argument to SetProcess for Background to true">
+      <option name="closed" value="true" />
+      <created>1703701325875</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1703701325875</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,6 +283,14 @@
     <MESSAGE value="Implemented infinite scrolling for the ground" />
     <MESSAGE value="Added Background.cs" />
     <MESSAGE value="Renamed _backgroundVelocity to _scrollVelocity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed _backgroundVelocity to _scrollVelocity" />
+    <MESSAGE value="Modified implementation of scrolling to use an abstract ScrollingTexture class" />
+    <MESSAGE value="Updated workspace.xml" />
+    <MESSAGE value="Added Fly and Snail to one group: the enemies group" />
+    <MESSAGE value="Repositioned the FlySpawnPosition marker" />
+    <MESSAGE value="Added ability to spawn flies" />
+    <MESSAGE value="Changed Input action name from ui_accept to jump" />
+    <MESSAGE value="Added start screen" />
+    <MESSAGE value="Corrected argument to SetProcess for Background to true" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrected argument to SetProcess for Background to true" />
   </component>
 </project>
